@@ -1,0 +1,1 @@
+docker build -t image_lessons_hw1 .

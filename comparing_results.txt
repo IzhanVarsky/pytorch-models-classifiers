@@ -1,0 +1,18 @@
+*************************
+>> Testing VGG network (12 epochs)
+100%|██████████| 355/355 [00:15<00:00, 22.30it/s]
+Mean total loss: 0.2769365618075518
+Mean total accuracy: 0.9511443661971831
+Mean total F1_macro score: 0.8869287780392252
+*************************
+>> Testing ResNet network (3 epochs)
+100%|██████████| 355/355 [00:17<00:00, 20.63it/s]
+Mean total loss: 0.048365294147361314
+Mean total accuracy: 0.9869718309859155
+Mean total F1_macro score: 0.9210729868805912
+*************************
+>> Testing ViT network (9 epochs)
+100%|██████████| 355/355 [00:28<00:00, 12.63it/s]
+Mean total loss: 0.1865450959495102
+Mean total accuracy: 0.95625
+Mean total F1_macro score: 0.8671424406920879
