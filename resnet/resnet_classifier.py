@@ -20,7 +20,7 @@ def train_resnet(dataloaders, image_datasets, num_classes, device, num_epochs=50
     model = get_resnet_model(num_classes, device, pretrained=True)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.fc.parameters())
-    early_stopping = EarlyStopping(model_name="ResNetTransfer", save_best=True)
+    early_stopping = EarlyStopping(model_name="ResNetTransfer_check", save_best=True)
     torch.cuda.empty_cache()
     return train_model(model, dataloaders, image_datasets, criterion,
                        optimizer, device, early_stopping, num_epochs)

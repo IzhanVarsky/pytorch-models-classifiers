@@ -2,24 +2,24 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm
 
-from resnet_classifier import get_resnet_model
+from resnet.resnet_classifier import get_resnet_model
 from utils import get_dataloader_dataset
 from sklearn.metrics import f1_score
 
-from vgg_classifier import get_vgg_model
-from vit_classifier import get_vit_model
+from vgg.vgg_classifier import get_vgg_model
+from vit.vit_classifier import get_vit_model
 
 
 def test_model(model, dataloaders, device):
     model.eval()
     criterion = nn.CrossEntropyLoss()
     total_loss = 0
-    total_f1 = 0
+    # total_f1 = 0
     total_acc = 0
     steps_count = 0
 
-    # all_labels = []
-    # all_predicts = []
+    all_labels = []
+    all_predicts = []
     with torch.no_grad():
         for inputs, labels in tqdm(dataloaders['test']):
             # print("-" * 10)
@@ -33,10 +33,10 @@ def test_model(model, dataloaders, device):
             total_acc += correct / len(predicted)
             # print(f"Correct: {correct}/{len(predicted)}")
             # print(f"Incorrect: {(predicted != labels).sum().item()}/{len(predicted)}")
-            # all_labels.extend(labels.cpu())
-            # all_labels.extend(predicted.cpu())
-            f1 = f1_score(labels.cpu(), predicted.cpu(), average='macro')
-            total_f1 += f1
+            all_labels.extend(labels.cpu())
+            all_predicts.extend(predicted.cpu())
+            # f1 = f1_score(labels.cpu(), predicted.cpu(), average='macro')
+            # total_f1 += f1
             # print("F1 score:", f1)
 
             loss = criterion(outputs, labels).item()
@@ -47,9 +47,11 @@ def test_model(model, dataloaders, device):
             # if steps_count == max_test_cnt:
             #     break
     # print("=" * 20)
+    total_f1 = f1_score(all_labels, all_predicts, average="macro")
     print("Mean total loss:", total_loss / steps_count)
     print("Mean total accuracy:", total_acc / steps_count)
-    print("Mean total F1_macro score:", total_f1 / steps_count)
+    # print("Mean total F1_macro score:", total_f1 / steps_count)
+    print("Mean total F1_macro score:", total_f1)
 
 
 def test_from_checkpoint(model, checkpoint_path, dataloaders, device):

@@ -1,3 +1,11 @@
+# My IGNORED:
+.idea
+*.zip
+fruits-360_dataset
+fruits-dataset-224
+olesya
+*.pth
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
