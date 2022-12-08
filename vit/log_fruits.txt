@@ -65,3 +65,23 @@ Epoch Time: 4:19
 ----------------------------------------------------------------------------------------------------
 >>> Saving the current VisionTransformer_Fruits224 model with the best metric value...
 ====================================================================================================
+Epoch 5/100
+----------
+--- Cur phase: train
+100%|██████████| 1058/1058 [03:49<00:00,  4.61it/s]
+train loss: 0.0085, acc: 0.9993, f1_macro: 0.9992
+--- Cur phase: test
+100%|██████████| 355/355 [00:28<00:00, 12.41it/s]
+test loss: 0.1749, acc: 0.9575, f1_macro: 0.9545
+----------
+Epoch Time: 4:19
+----------------------------------------------------------------------------------------------------
+>>> Saving the current VisionTransformer_Fruits224 model with the best metric value...
+*** Needed F1 macro achieved ***
+*** Training Completed ***
+*************************
+>> Testing VisionTransformer network
+100%|██████████| 355/355 [00:28<00:00, 12.42it/s]
+Mean total loss: 0.1748896666108079
+Mean total accuracy: 0.9574665021156559
+Mean total F1_macro score: 0.9544841253256933

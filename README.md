@@ -60,7 +60,7 @@
 
 #### Результаты
 
-Реализованный Vision Transformer на датасете Fruits достигает f1_macro: 0.9434 уже на 4 эпохе.
+Реализованный Vision Transformer на датасете Fruits достигает f1_macro: 0.9545 уже на 5 эпохе.
 
 ## InceptionV3
 
