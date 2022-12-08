@@ -10,10 +10,13 @@ from vit.vit_classifier import train_vit, get_vit_classifier
 
 
 def run_train2():
-    batch_size = 128
-    train_dir = "./fruits-360_dataset_299/fruits-360/Training"
-    test_dir = "./fruits-360_dataset_299/fruits-360/Test"
-    dataset_name = "Fruits299"
+    batch_size = 64
+    # train_dir = "./fruits-360_dataset_299/fruits-360/Training"
+    # test_dir = "./fruits-360_dataset_299/fruits-360/Test"
+    # dataset_name = "Fruits299"
+    train_dir = "./fruits-dataset-224/fruits-360/Training"
+    test_dir = "./fruits-dataset-224/fruits-360/Test"
+    dataset_name = "Fruits224"
     # train_dir = "./cars_archive_299/train"
     # test_dir = "./cars_archive_299/test"
     # dataset_name = "Cars299"
@@ -33,7 +36,7 @@ def run_train2():
                    "inception_v3": get_inception_v3_classifier,
                    "inception_v3_scratch": get_my_inception_v3_classifier,
                    }
-    classifier = classifiers["inception_v3"](num_classes, device)
+    classifier = classifiers["vit"](num_classes, device)
     checkpoint_name = f"{classifier.model_name}_{dataset_name}"
     early_stopping = EarlyStopping(model_name=checkpoint_name, save_best=True,
                                    use_early_stop=False, metric_decreasing=False)

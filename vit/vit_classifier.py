@@ -54,10 +54,12 @@ class ViT_Encoder_Block(nn.Module):
         # self.MHA = nn.MultiheadAttention(d_model, num_heads=num_heads, batch_first=True)
         # self.to_qkv = nn.Linear(d_model, d_model * 3, bias=False)
 
-        self.layer_norm2 = nn.LayerNorm(d_model)
-        self.ffd1 = nn.Linear(d_model, d_model * 4)
-        self.gelu = nn.GELU()
-        self.ffd2 = nn.Linear(d_model * 4, d_model)
+        self.backbone_layers = nn.Sequential(
+            nn.LayerNorm(d_model),
+            nn.Linear(d_model, d_model * 4),
+            nn.GELU(),
+            nn.Linear(d_model * 4, d_model)
+        )
 
     def forward(self, x):
         out1 = self.layer_norm1(x)
@@ -66,12 +68,9 @@ class ViT_Encoder_Block(nn.Module):
         # attn_output, _ = self.MHA(q, k, v)
         attn_output = self.MHA(out1)
 
-        out1 = attn_output + x
-        out2 = self.layer_norm2(out1)
-        out2 = self.ffd1(out2)
-        out2 = self.gelu(out2)
-        out2 = self.ffd2(out2)
-        return out1 + out2
+        out2 = attn_output + x
+        out3 = self.backbone_layers(out2)
+        return out3 + out2
 
 
 class ViT_Classifier(nn.Module):
