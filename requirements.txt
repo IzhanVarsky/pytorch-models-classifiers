@@ -1,11 +1,9 @@
 numpy
 Pillow
-einops
-cssutils
 scikit-learn
 scikit-image
-svgwrite
-svgpathtools
 matplotlib
 tqdm
 sklearn
+# torch
+# torchvision

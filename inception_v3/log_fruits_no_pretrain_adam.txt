@@ -1,0 +1,164 @@
+Dataset Name: Fruits299
+Train Dataset Size: 67692
+Test Dataset Size: 22688
+batch_size: 128
+/usr/local/lib/python3.8/dist-packages/torchvision/models/inception.py:81: FutureWarning: The default weight initialization of inception_v3 will be changed in future releases of torchvision. If you wish to keep the old behavior (which leads to long initialization times due to scipy/scipy#11299), please set init_weights=True.
+  warnings.warn('The default weight initialization of inception_v3 will be changed in future releases of '
+====================================================================================================
+Epoch 1/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:09<00:00,  7.63it/s]
+train loss: 2.6572, acc: 0.6190, f1_macro: 0.6044
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.20it/s]
+test loss: 1.7658, acc: 0.8557, f1_macro: 0.8404
+----------
+Epoch Time: 1:32
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 2/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.38it/s]
+train loss: 1.6494, acc: 0.8463, f1_macro: 0.8402
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.10it/s]
+test loss: 1.4476, acc: 0.9101, f1_macro: 0.9016
+----------
+Epoch Time: 1:35
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 3/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.41it/s]
+train loss: 1.5003, acc: 0.8746, f1_macro: 0.8708
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.12it/s]
+test loss: 1.3846, acc: 0.9163, f1_macro: 0.9092
+----------
+Epoch Time: 1:34
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 4/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.41it/s]
+train loss: 1.4467, acc: 0.8849, f1_macro: 0.8820
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.17it/s]
+test loss: 1.3130, acc: 0.9337, f1_macro: 0.9307
+----------
+Epoch Time: 1:34
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 5/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.41it/s]
+train loss: 1.4264, acc: 0.8889, f1_macro: 0.8863
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.12it/s]
+test loss: 1.2828, acc: 0.9415, f1_macro: 0.9367
+----------
+Epoch Time: 1:34
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 6/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.35it/s]
+train loss: 1.4167, acc: 0.8922, f1_macro: 0.8895
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.21it/s]
+test loss: 1.2628, acc: 0.9442, f1_macro: 0.9407
+----------
+Epoch Time: 1:35
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 7/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.38it/s]
+train loss: 1.4119, acc: 0.8921, f1_macro: 0.8898
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.11it/s]
+test loss: 1.2641, acc: 0.9411, f1_macro: 0.9355
+----------
+Epoch Time: 1:35
+====================================================================================================
+Epoch 8/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.39it/s]
+train loss: 1.4080, acc: 0.8931, f1_macro: 0.8910
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.16it/s]
+test loss: 1.2671, acc: 0.9418, f1_macro: 0.9377
+----------
+Epoch Time: 1:34
+====================================================================================================
+Epoch 9/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.38it/s]
+train loss: 1.4048, acc: 0.8951, f1_macro: 0.8932
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.10it/s]
+test loss: 1.2341, acc: 0.9461, f1_macro: 0.9423
+----------
+Epoch Time: 1:35
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 10/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.36it/s]
+train loss: 1.4042, acc: 0.8937, f1_macro: 0.8918
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.10it/s]
+test loss: 1.2301, acc: 0.9403, f1_macro: 0.9338
+----------
+Epoch Time: 1:35
+====================================================================================================
+Epoch 11/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:08<00:00,  7.71it/s]
+train loss: 1.3989, acc: 0.8968, f1_macro: 0.8945
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.13it/s]
+test loss: 1.2167, acc: 0.9533, f1_macro: 0.9497
+----------
+Epoch Time: 1:32
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 12/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.39it/s]
+train loss: 1.4043, acc: 0.8941, f1_macro: 0.8920
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.12it/s]
+test loss: 1.2322, acc: 0.9543, f1_macro: 0.9505
+----------
+Epoch Time: 1:35
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_no_pretrained_Adam_Fruits299 model with the best metric value...
+*** Needed F1 macro achieved ***
+*** Training Completed ***
+*************************
+>> Testing InceptionV3_no_pretrained_Adam network
+100%|██████████| 178/178 [00:21<00:00,  8.14it/s]
+Mean total loss: 1.232249460536435
+Mean total accuracy: 0.9543370944992948
+Mean total F1_macro score: 0.9504953079028742

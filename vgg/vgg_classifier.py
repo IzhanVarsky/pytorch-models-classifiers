@@ -68,3 +68,12 @@ def train_vgg(dataloaders, image_datasets, num_classes, device, num_epochs=50):
     torch.cuda.empty_cache()
     return train_model(model, dataloaders, image_datasets, criterion,
                        optimizer, device, early_stopping, num_epochs)
+
+
+def get_vgg11_classifier(num_classes, device):
+    from classifier import Classifier
+    model = get_vgg_model(num_classes, device)
+    criterion = nn.CrossEntropyLoss()
+    lr = 0.0001
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    return Classifier(model, optimizer, criterion, device, "VGG11")

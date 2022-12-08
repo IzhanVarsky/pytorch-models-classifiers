@@ -12,35 +12,39 @@ from tqdm import tqdm
 
 class EarlyStopping:
     def __init__(self, model_name, patience=15, min_delta=0,
-                 save_best=False, use_early_stop=True):
+                 save_best=False, use_early_stop=True, metric_decreasing=True):
         self.model_name = model_name
         self.patience = patience
         self.min_delta = min_delta
         self.counter = 0
-        self.best_loss = None
+        self.best_metric = None
         self.early_stop = False
         self.use_early_stop = use_early_stop
         self.save_best = save_best
+        if metric_decreasing:
+            self.is_cur_metric_better = lambda val: self.best_metric - val > self.min_delta
+        else:
+            self.is_cur_metric_better = lambda val: self.best_metric - val < self.min_delta
 
-    def __call__(self, val_loss, model):
-        if self.best_loss == None:
-            self.best_loss = val_loss
+    def __call__(self, cur_metric, model):
+        if self.best_metric == None:
+            self.best_metric = cur_metric
             if self.save_best:
                 self.save_best_model(model)
-        elif self.best_loss - val_loss > self.min_delta:
-            self.best_loss = val_loss
+        elif self.is_cur_metric_better(cur_metric):
+            self.best_metric = cur_metric
             self.counter = 0
             if self.save_best:
                 self.save_best_model(model)
-        elif self.best_loss - val_loss < self.min_delta:
+        else:
             self.counter += 1
             if self.use_early_stop and self.counter >= self.patience:
                 self.early_stop = True
 
     def save_best_model(self, model):
-        print(f">>> Saving the current {self.model_name} model with the best loss value...")
         print("-" * 100)
-        torch.save(model.state_dict(), f'{self.model_name}_best_loss_model.pth')
+        print(f">>> Saving the current {self.model_name} model with the best metric value...")
+        torch.save(model.state_dict(), f'{self.model_name}_best_metric_model.pth')
 
 
 def plot_graphics(losses, accuracies):
@@ -90,7 +94,7 @@ def get_dataloader_dataset(train_dir="",
 
 
 def train_model(model, dataloaders, image_datasets, criterion, optimizer,
-                device, early_stopping, num_epochs=5):
+                device, early_stopping, num_epochs=5, has_aux=False):
     saved_epoch_losses = {'train': [], 'test': []}
     saved_epoch_accuracies = {'train': [], 'test': []}
 
@@ -116,8 +120,12 @@ def train_model(model, dataloaders, image_datasets, criterion, optimizer,
                 inputs = inputs.to(device)
                 labels = labels.to(device)
 
-                outputs = model(inputs)
-                loss = criterion(outputs, labels)
+                if phase == 'train' and has_aux:
+                    outputs, aux = model(inputs)
+                    loss = criterion(outputs, labels) + 0.4 * criterion(aux, labels)
+                else:
+                    outputs = model(inputs)
+                    loss = criterion(outputs, labels)
 
                 if phase == 'train':
                     optimizer.zero_grad()
@@ -148,7 +156,7 @@ def train_model(model, dataloaders, image_datasets, criterion, optimizer,
         if early_stopping.early_stop:
             print('*** Early stopping ***')
             break
-        if f1_macro > 0.93:
+        if f1_macro > 0.95:
             print('*** Needed F1 macro achieved ***')
             break
     print("*** Training Completed ***")

@@ -115,3 +115,11 @@ def train_vit(dataloaders, image_datasets, num_classes, device, num_epochs=50):
     torch.cuda.empty_cache()
     return train_model(model, dataloaders, image_datasets, criterion,
                        optimizer, device, early_stopping, num_epochs)
+
+
+def get_vit_classifier(num_classes, device):
+    from classifier import Classifier
+    model = get_vit_model(num_classes, num_layers=8, device=device)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.00001)
+    return Classifier(model, optimizer, criterion, device, "VisionTransformer")

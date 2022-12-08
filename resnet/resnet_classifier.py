@@ -24,3 +24,11 @@ def train_resnet(dataloaders, image_datasets, num_classes, device, num_epochs=50
     torch.cuda.empty_cache()
     return train_model(model, dataloaders, image_datasets, criterion,
                        optimizer, device, early_stopping, num_epochs)
+
+
+def get_resnet_classifier(num_classes, device):
+    from classifier import Classifier
+    model = get_resnet_model(num_classes, device, pretrained=True)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.fc.parameters())
+    return Classifier(model, optimizer, criterion, device, "ResNetTransfer_pretrained")
