@@ -1,5 +1,6 @@
 numpy
 Pillow
+einops
 scikit-learn
 scikit-image
 matplotlib

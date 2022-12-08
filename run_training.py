@@ -33,7 +33,7 @@ def run_train2():
                    "inception_v3": get_inception_v3_classifier,
                    "inception_v3_scratch": get_my_inception_v3_classifier,
                    }
-    classifier = classifiers["inception_v3_scratch"](num_classes, device)
+    classifier = classifiers["inception_v3"](num_classes, device)
     checkpoint_name = f"{classifier.model_name}_{dataset_name}"
     early_stopping = EarlyStopping(model_name=checkpoint_name, save_best=True,
                                    use_early_stop=False, metric_decreasing=False)

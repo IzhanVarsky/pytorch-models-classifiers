@@ -1,0 +1,48 @@
+Dataset Name: Fruits299
+Train Dataset Size: 67692
+Test Dataset Size: 22688
+batch_size: 128
+Training model InceptionV3_pretrained_Adam with params:
+Optim: Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+Criterion: CrossEntropyLoss()
+====================================================================================================
+Epoch 1/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:09<00:00,  7.62it/s]
+train loss: 1.5473, acc: 0.8978, f1_macro: 0.9009
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.10it/s]
+test loss: 1.1568, acc: 0.9478, f1_macro: 0.9480
+----------
+Epoch Time: 1:32
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_pretrained_Adam_Fruits299 model with the best metric value...
+====================================================================================================
+Epoch 2/100
+----------
+--- Cur phase: train
+100%|██████████| 529/529 [01:11<00:00,  7.38it/s]
+train loss: 1.0375, acc: 0.9891, f1_macro: 0.9892
+--- Cur phase: test
+100%|██████████| 178/178 [00:21<00:00,  8.13it/s]
+test loss: 1.0817, acc: 0.9647, f1_macro: 0.9636
+----------
+Epoch Time: 1:35
+----------------------------------------------------------------------------------------------------
+>>> Saving the current InceptionV3_pretrained_Adam_Fruits299 model with the best metric value...
+*** Needed F1 macro achieved ***
+*** Training Completed ***
+*************************
+>> Testing InceptionV3_pretrained_Adam network
+100%|██████████| 178/178 [00:22<00:00,  8.07it/s]
+Mean total loss: 1.0817352634222785
+Mean total accuracy: 0.9646509167842031
+Mean total F1_macro score: 0.9635644346008845
