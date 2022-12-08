@@ -14,12 +14,15 @@ def run_train2():
     # train_dir = "./fruits-360_dataset_299/fruits-360/Training"
     # test_dir = "./fruits-360_dataset_299/fruits-360/Test"
     # dataset_name = "Fruits299"
-    train_dir = "./fruits-dataset-224/fruits-360/Training"
-    test_dir = "./fruits-dataset-224/fruits-360/Test"
-    dataset_name = "Fruits224"
+    # train_dir = "./fruits-dataset-224/fruits-360/Training"
+    # test_dir = "./fruits-dataset-224/fruits-360/Test"
+    # dataset_name = "Fruits224"
     # train_dir = "./cars_archive_299/train"
     # test_dir = "./cars_archive_299/test"
     # dataset_name = "Cars299"
+    train_dir = "./cars_archive_224/train"
+    test_dir = "./cars_archive_224/test"
+    dataset_name = "Cars224"
 
     dataloaders, image_datasets = get_dataloader_dataset(train_dir=train_dir,
                                                          test_dir=test_dir,
